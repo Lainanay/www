@@ -1,0 +1,218 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>生日快乐</title>
+    <meta name="keywords" content="your keywords">
+    <meta name="description" content="your description">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+    <meta name="format-detection" content="telephone=no">
+    <style>
+        html, body {
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            background: #000;
+        }
+
+        canvas {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .loading-warp {
+            width: 120px;
+            height: 50px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .loading-warp p {
+            color: #fff;
+            font-size: 16px;
+            font-family: Saira Condensed;
+        }
+
+        .loading-top {
+            top: 0;
+            animation: .6s .25s infinite both top;
+        }
+
+        .loading-left {
+            left: 0;
+            animation: .6s .45s infinite both left;
+        }
+
+        .loading-bottom {
+            bottom: 0;
+            animation: .6s .35s infinite both bottom;
+        }
+
+        .loading-right {
+            right: 0;
+            animation: .6s .55s infinite both right;
+        }
+
+        .loading-bottom,
+        .loading-top {
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 2px;
+        }
+
+        .loading-left,
+        .loading-right {
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            height: 100%;
+        }
+
+        .loading-bottom,
+        .loading-left,
+        .loading-right,
+        .loading-top {
+            position: absolute;
+            background-color: #fff;
+        }
+
+        @keyframes top {
+            0% {
+                transform: scaleX(0);
+                transform-origin: right;
+            }
+
+            45% {
+                transform: scaleX(1);
+                transform-origin: right;
+            }
+
+            55% {
+                transform: scaleX(1);
+                transform-origin: left;
+
+            }
+
+            100% {
+                transform: scaleX(0);
+                transform-origin: left;
+            }
+        }
+
+        @keyframes left {
+            0% {
+                transform: scaleY(0);
+                transform-origin: top;
+            }
+
+            45% {
+                transform: scaleY(1);
+                transform-origin: top;
+            }
+
+            55% {
+                transform: scaleY(1);
+                transform-origin: bottom;
+
+            }
+
+            100% {
+                transform: scaleY(0);
+                transform-origin: bottom;
+            }
+        }
+
+        @keyframes bottom {
+            0% {
+                transform: scaleX(0);
+                transform-origin: left;
+            }
+
+            45% {
+                transform: scaleX(0);
+                transform-origin: left;
+            }
+
+            55% {
+                transform: scaleX(1);
+                transform-origin: right;
+
+            }
+
+            100% {
+                transform: scaleX(0);
+                transform-origin: right;
+            }
+        }
+
+        @keyframes right {
+            0% {
+                transform: scaleY(0);
+                transform-origin: bottom;
+            }
+
+            45% {
+                transform: scaleY(1);
+                transform-origin: bottom;
+            }
+
+            55% {
+                transform: scaleY(1);
+                transform-origin: top;
+
+            }
+
+            100% {
+                transform: scaleY(0);
+                transform-origin: top;
+            }
+        }
+
+        .loading-warp {
+            transition: 1s;
+        }
+
+        .loading-warp.active {
+            opacity: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<div class="loading-warp">
+    <p>嘿嘿</p>
+    <span class="loading-top"></span>
+    <span class="loading-left"></span>
+    <span class="loading-right"></span>
+    <span class="loading-bottom"></span>
+</div>
+<audio id="audio" src="1.mp3" loop="loop" autoplay="autoplay"></audio>
+</body>
+<script>
+  
+    let i = document.querySelector('.loading-warp')
+    
+    // 给i绑定点击事件
+    i.onclick = function () {
+      
+       
+        // 让点击事件只触发一次
+        document.body.removeEventListener('click', arguments.callee)
+        setTimeout("javascript:location.href='index.html'", 1000); 
+       
+    }
+    
+   
+</script>
+</html>
